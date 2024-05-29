@@ -1,17 +1,18 @@
-import {Car} from '@prisma/client'
+import { Car } from '@prisma/client'
 import CarItem from './CarItem'
 
 type Props = {
-    cars: Car[]
+  cars: Car[]
 }
 
-const CarList = ({cars}: Props) => {
-    return(
-        <div>
-            {cars.map(car => (
-            <CarItem key={car.id} car = {car}/>))}
-        </div>
-    )
+const CarList = ({ cars }: Props) => {
+  return (
+    <div>
+      {cars.map((car) => (
+        <CarItem key={car.id} car={car} />
+      ))}
+    </div>
+  )
 }
 
 export default CarList
