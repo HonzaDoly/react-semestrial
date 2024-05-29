@@ -1,8 +1,13 @@
-import { CarWithDeps } from '@/types/prismaTypes'
-import { Car } from '@prisma/client'
+import { CarWithDeps } from "@/types/prismaTypes";
+import { Car } from "@prisma/client";
+import Link from "next/link";
 
 const CarItem = ({ car }: { car: CarWithDeps }) => {
-  return <div>{car.id}</div>
-}
+  return (
+    <Link href={`car/${car.id}`} className=" cursor-pointer">
+      <div>{car.model.name}</div>
+    </Link>
+  );
+};
 
-export default CarItem
+export default CarItem;
