@@ -1,31 +1,30 @@
-import prisma from "@/utils/prisma";
-import Link from "next/link";
+import prisma from '@/utils/prisma'
+import Link from 'next/link'
 
-const fetchCarDetail = async (id: string) =>{
-    const car = await prisma.car.findUnique({
-        where: {
-            id: id,
-        },
-        include:{
-            brand: true,
-            model: true,
-        }
-    })
-    return car
+const fetchCarDetail = async (id: string) => {
+  const car = await prisma.car.findUnique({
+    where: {
+      id: id,
+    },
+    include: {
+      model: true,
+      brand: true,
+    },
+  })
+  return car
 }
 
-const CarDetaiPage = async ({params}: {params: {id:string}}) => {
-
-    const car = await fetchCarDetail(params.id)
+const CarDetailPage = async ({ params }: { params: { id: string } }) => {
+  const car = await fetchCarDetail(params.id)
 
   return (
     <div>
-        <Link href={"/"}>Back</Link>
-        <div>{car?.brand.name}</div>
-        <div>{car?.color}</div>
-        <div>{car?.model.name}</div>
+      <Link href={'/'}>Home</Link>
+      <div>{car?.brand.name}</div>
+      <div>{car?.model.name}</div>
+      <div>{car?.description}</div>
     </div>
   )
-};
+}
 
-export default CarDetaiPage;
+export default CarDetailPage
