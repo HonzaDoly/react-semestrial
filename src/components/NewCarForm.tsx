@@ -1,8 +1,8 @@
-"use client"
-
+import { createCar } from "@/utils/actions";
 import { Brand, CarModel } from "@prisma/client";
-import { useMemo, useState } from "react";
-
+import BrandAndModelFormFields from "./BrandAndModelFormFields";
+import prisma from "@/utils/prisma";
+import Link from "next/link";
 
 const NewCarForm = ({
   models,
@@ -11,35 +11,48 @@ const NewCarForm = ({
   models: CarModel[];
   brands: Brand[];
 }) => {
-  const [brandId, setBrandId] = useState('');
-  const filteredModels = useMemo(() => {
-    return models.filter((model) => model.brandId === brandId);
-  }, [brandId, models]);
   return (
     <div>
-      <form action="">
-        <select
-          name="brandId"
-          id=""
-          value={brandId}
-          onChange={(e) => {
-            setBrandId;
-          }}
-        >
-          {brands.map((brand) => (
-            <option key={brand.id} value={brand.id}>
-              {brand.name}
-            </option>
-          ))}
-        </select>
-        <select name="modelId">
-          {filteredModels.map((model) => (
-            <option key={model.id} value={model.id}>
-              {model.name}
-            </option>
-          ))}
-        </select>
+      <form action={createCar} className="flex flex-col">
+        <BrandAndModelFormFields models={models} brands={brands} />
+        <input
+          className=" border-2"
+          type="text"
+          name="description"
+          placeholder="description"
+          required={true}
+        />
+        <input
+          className=" border-2"
+          type="text"
+          name="location"
+          placeholder="location"
+          required={true}
+        />
+        <input
+          className=" border-2"
+          type="text"
+          name="price"
+          placeholder="price"
+          required={true}
+        />
+        <input
+          className=" border-2"
+          type="text"
+          name="color"
+          placeholder="color"
+          required={true}
+        />
+        <input
+          className=" border-2"
+          type="text"
+          name="year"
+          placeholder="year"
+          required={true}
+        />
+        <button type="submit">submit</button>
       </form>
+      <Link href={"/"}>Home</Link>
     </div>
   );
 };
