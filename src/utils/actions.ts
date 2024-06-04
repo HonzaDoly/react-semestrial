@@ -8,7 +8,7 @@ export const createCar = async (formData: FormData) => {
   const brandId = formData.get("brandId")?.toString();
   const location = formData.get("location")?.toString();
   const price = formData.get("price")?.toString();
-  const priceInt = price !== undefined ? parseInt(price, 10) : undefined;
+  const priceInt = price !== undefined ? parseFloat(price) : undefined;
   const year = formData.get("year")?.toString();
   const yearInt = year !== undefined ? parseInt(year, 10) : undefined;
   const color = formData.get("color")?.toString();

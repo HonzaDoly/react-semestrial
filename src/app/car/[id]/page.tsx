@@ -32,7 +32,6 @@ const CarDetailPage = async ({ params }: { params: { id: string } }) => {
 
   return (
     <div>
-      <Link href={"/"}>Home</Link>
       <div className="px-4 sm:px-0">
         <div className="flex text-base font-semibold leading-7 text-gray-900">
           {car?.brand.name}
@@ -48,6 +47,14 @@ const CarDetailPage = async ({ params }: { params: { id: string } }) => {
           <DetailParam label="Location" value={car?.location} />
           <DetailParam label="Description" value={car?.description} />
         </dl>
+      </div>
+      <div className="flex justify-center mt-4">
+        <Link
+          href="/"
+          className="text-center w-full max-w-xs rounded-md border p-2 shadow-sm hover:bg-slate-100 bg-slate-300"
+        >
+          Home
+        </Link>
       </div>
     </div>
   );

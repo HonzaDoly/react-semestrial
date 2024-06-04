@@ -12,47 +12,64 @@ const NewCarForm = ({
   brands: Brand[];
 }) => {
   return (
-    <div>
-      <form action={createCar} className="flex flex-col">
+    <div className="p-5">
+      <form
+        action={createCar}
+        className="flex flex-col rounded-md bg-gray-400 p-5 shadow-sm shadow-gray-500"
+      >
         <BrandAndModelFormFields models={models} brands={brands} />
         <input
-          className=" border-2"
+          className="border-2 rounded-md p-2 mt-2"
           type="text"
           name="description"
-          placeholder="description"
-          required={true}
+          placeholder="Description"
+          required
         />
         <input
-          className=" border-2"
+          className="border-2 rounded-md p-2 mt-2"
           type="text"
           name="location"
-          placeholder="location"
-          required={true}
+          placeholder="Location"
+          required
         />
         <input
-          className=" border-2"
+          className="border-2 rounded-md p-2 mt-2"
           type="text"
           name="price"
-          placeholder="price"
-          required={true}
+          placeholder="Price"
+          required
         />
         <input
-          className=" border-2"
+          className="border-2 rounded-md p-2 mt-2"
           type="text"
           name="color"
-          placeholder="color"
-          required={true}
+          placeholder="Color"
+          required
         />
         <input
-          className=" border-2"
+          className="border-2 rounded-md p-2 mt-2"
           type="text"
           name="year"
-          placeholder="year"
-          required={true}
+          placeholder="Year"
+          required
         />
-        <button type="submit">submit</button>
+        <div className="flex justify-center mt-4">
+          <button
+            className="btn text-center w-full max-w-xs rounded-md border p-2 shadow-sm hover:bg-slate-100"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
       </form>
-      <Link href={"/"}>Home</Link>
+      <div className="flex justify-center mt-4">
+        <Link
+          href="/"
+          className="text-center w-full max-w-xs rounded-md border p-2 shadow-sm hover:bg-slate-100"
+        >
+          Home
+        </Link>
+      </div>
     </div>
   );
 };

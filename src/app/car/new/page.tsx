@@ -16,9 +16,11 @@ const NewCarPage = async () => {
   const models = await fetchModels()
 
   return (
-    <div>
-      New Car
-      <NewCarForm brands={brands} models={models} />
+    <div className="p-5 flex flex-col items-center">
+      <h1 className="text-2xl font-bold mb-4">New Car</h1>
+      <div className="w-full max-w-lg">
+        <NewCarForm brands={brands} models={models} />
+      </div>
     </div>
   )
 }
